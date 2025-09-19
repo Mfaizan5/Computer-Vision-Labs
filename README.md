@@ -3,52 +3,24 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Use the already loaded 'img' variable
 
-# Convert to grayscale
+#Convert to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-# Apply Gaussian blur
+#Apply Gaussian blur
 blur = cv2.GaussianBlur(gray, (5, 5), 0)
 
-# Edge detection (Canny)
+#Edge detection (Canny)
 edges = cv2.Canny(blur, 100, 200)
 
-# Combine images horizontally
+#Combine images horizontally
 combined = np.hstack((img, cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR),
                       cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)))
 
-# Convert BGR to RGB for matplotlib display
+#Convert BGR to RGB for matplotlib display
 combined_rgb = cv2.cvtColor(combined, cv2.COLOR_BGR2RGB)
 
-# Show output using matplotlib
-plt.figure(figsize=(12, 6))
-plt.imshow(combined_rgb)
-plt.axis('off')
-plt.title("Original | Grayscale | Edges")
-plt.show()
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Use the already loaded 'img' variable
-
-# Convert to grayscale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-# Apply Gaussian blur
-blur = cv2.GaussianBlur(gray, (5, 5), 0)
-
-# Edge detection (Canny)
-edges = cv2.Canny(blur, 100, 200)
-
-# Combine images horizontally
-combined = np.hstack((img, cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR),
-                      cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)))
-
-# Convert BGR to RGB for matplotlib display
-combined_rgb = cv2.cvtColor(combined, cv2.COLOR_BGR2RGB)
-
-# Show output using matplotlib
+#Show output using matplotlib
 plt.figure(figsize=(12, 6))
 plt.imshow(combined_rgb)
 plt.axis('off')
